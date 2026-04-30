@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "pages:build": "npx @opennextjs/cloudflare build && cd .open-next && npx esbuild worker.js --bundle --outfile=assets/_worker.js --format=esm --platform=node --external:cloudflare:*",
+    "pages:build": "npx @opennextjs/cloudflare build && npx wrangler deploy --dry-run --outdir .tmp-worker --config wrangler.worker.toml && cp .tmp-worker/worker.js .open-next/assets/_worker.js",
     "start": "next start",
     "lint": "eslint"
   },

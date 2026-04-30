@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "pages:build": "npx @opennextjs/cloudflare build",
+    "pages:build": "npx @opennextjs/cloudflare build && npx esbuild .open-next/worker.js --bundle --outfile=.open-next/assets/_worker.js --format=esm --conditions=workerd --minify",
     "start": "next start",
     "lint": "eslint"
   },

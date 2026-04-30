@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "pages:build": "npx @opennextjs/cloudflare build && npx wrangler deploy --dry-run --outdir .tmp-worker --config wrangler.worker.toml && cp .tmp-worker/worker.js .open-next/assets/_worker.js",
+    "pages:build": "npx @opennextjs/cloudflare build && npx wrangler deploy --dry-run --outdir .tmp-worker --config wrangler.worker.toml && cp .tmp-worker/worker.js .open-next/assets/_worker.js && node -e \"const fs=require('fs'),f='.open-next/assets/_worker.js';fs.writeFileSync(f,'// opennextjs/cloudflare#1232: set runtime-only, not build-time\\nprocess.env.NEXT_PRIVATE_MINIMAL_MODE=\\\"1\\\";\\n'+fs.readFileSync(f,'utf8'));\"",
     "start": "next start",
     "lint": "eslint"
   },

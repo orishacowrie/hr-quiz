@@ -1,3 +1,4 @@
+# Cloudflare Pages + OpenNext deployment config
 name = "hr-quiz"
 compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]
